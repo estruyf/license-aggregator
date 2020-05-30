@@ -1,5 +1,6 @@
 import * as checker from 'license-checker';
 import * as fs from 'fs';
+import * as path from 'path';
 import { Config, ProjectInfo } from './models';
 
 export class LicenseAggregator {
@@ -57,6 +58,11 @@ export class LicenseAggregator {
           // Check if it is a direct dependency
           if (config.direct && !toBeExcluded) {
             toBeExcluded = !packageJson.dependencies[name];
+
+            if (!toBeExcluded) {
+              const depDepth = pkgs[pkgId].licenseFile.split(path.sep).filter(n => n === "node_modules").length > 1;
+              toBeExcluded = depDepth;
+            }
           }
 
           if (!toBeExcluded) {
