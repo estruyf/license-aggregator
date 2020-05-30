@@ -55,7 +55,7 @@ export class LicenseAggregator {
           }).length > 0;
 
           // Check if it is a direct dependency
-          if (config.direct) {
+          if (config.direct && !toBeExcluded) {
             toBeExcluded = !packageJson.dependencies[name];
           }
 
