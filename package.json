@@ -1,0 +1,28 @@
+{
+  "name": "license-aggregator",
+  "version": "0.0.1",
+  "description": "Get all the licenses from dependencies used in the project",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "npm run build && node dist/test/test.js"
+  },
+  "author": "Elio Struyf",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/license-checker": "25.0.0",
+    "@types/node": "14.0.6",
+    "typescript": "3.9.3"
+  },
+  "dependencies": {
+    "license-checker": "25.0.1"
+  },
+  "homepage": "https://github.com/estruyf/license-aggregator",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/estruyf/license-aggregator"
+  },
+  "bugs": {
+    "url": "https://github.com/estruyf/license-aggregator/issues"
+  }
+}
