@@ -59,7 +59,7 @@ export class LicenseAggregator {
           if (config.direct && !toBeExcluded) {
             toBeExcluded = !packageJson.dependencies[name];
 
-            if (!toBeExcluded) {
+            if (!toBeExcluded && pkgs && pkgId && pkgs[pkgId].licenseFile) {
               const depDepth = pkgs[pkgId].licenseFile.split(path.sep).filter(n => n === "node_modules").length > 1;
               toBeExcluded = depDepth;
             }
